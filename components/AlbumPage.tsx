@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowLeft, Camera, Heart, Instagram } from 'lucide-react';
 import { motion } from 'framer-motion';
-import { AlbumConfig } from '../types';
+import { AlbumConfig, Photo } from '../types';
 import PhotoCard from './PhotoCard';
+import Lightbox from './Lightbox';
 
 interface AlbumPageProps {
   config: AlbumConfig;
@@ -11,13 +12,37 @@ interface AlbumPageProps {
 
 const AlbumPage: React.FC<AlbumPageProps> = ({ config }) => {
   const isDark = config.theme === 'dark';
+  const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(null);
+
+  const handlePhotoClick = (photo: Photo) => {
+    const index = config.photos.findIndex(p => p.id === photo.id);
+    setSelectedPhotoIndex(index);
+  };
+
+  const handleCloseLightbox = () => {
+    setSelectedPhotoIndex(null);
+  };
+
+  const handleNext = () => {
+    if (selectedPhotoIndex === null) return;
+    setSelectedPhotoIndex((prev) => 
+      prev !== null && prev < config.photos.length - 1 ? prev + 1 : 0
+    );
+  };
+
+  const handlePrev = () => {
+    if (selectedPhotoIndex === null) return;
+    setSelectedPhotoIndex((prev) => 
+      prev !== null && prev > 0 ? prev - 1 : config.photos.length - 1
+    );
+  };
 
   return (
     <div className={`min-h-screen transition-colors duration-500 ${
       isDark ? 'bg-slate-950 text-slate-100' : 'bg-stone-50 text-stone-800'
     }`}>
       {/* Navigation Bar */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-colors duration-300 ${
+      <nav className={`fixed top-0 left-0 right-0 z-40 backdrop-blur-md border-b transition-colors duration-300 ${
         isDark ? 'bg-slate-950/80 border-slate-800' : 'bg-white/80 border-stone-200'
       }`}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
@@ -64,7 +89,12 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ config }) => {
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pb-20">
         <div className="columns-1 sm:columns-2 lg:columns-3 gap-6 space-y-6">
           {config.photos.map((photo) => (
-            <PhotoCard key={photo.id} photo={photo} theme={config.theme} />
+            <PhotoCard 
+              key={photo.id} 
+              photo={photo} 
+              theme={config.theme} 
+              onClick={handlePhotoClick}
+            />
           ))}
         </div>
         
@@ -99,6 +129,16 @@ const AlbumPage: React.FC<AlbumPageProps> = ({ config }) => {
           </a>
         </p>
       </footer>
+
+      {/* Lightbox Overlay */}
+      {selectedPhotoIndex !== null && (
+        <Lightbox 
+          photo={config.photos[selectedPhotoIndex]}
+          onClose={handleCloseLightbox}
+          onNext={handleNext}
+          onPrev={handlePrev}
+        />
+      )}
     </div>
   );
 };

@@ -6,9 +6,10 @@ import { Photo } from '../types';
 interface PhotoCardProps {
   photo: Photo;
   theme: 'light' | 'dark';
+  onClick: (photo: Photo) => void;
 }
 
-const PhotoCard: React.FC<PhotoCardProps> = ({ photo, theme }) => {
+const PhotoCard: React.FC<PhotoCardProps> = ({ photo, theme, onClick }) => {
   const [isDownloading, setIsDownloading] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
@@ -39,7 +40,7 @@ const PhotoCard: React.FC<PhotoCardProps> = ({ photo, theme }) => {
       `}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={() => window.open(photo.url, '_blank')}
+      onClick={() => onClick(photo)}
     >
       <div className="relative aspect-auto">
         <img
