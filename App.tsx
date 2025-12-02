@@ -3,6 +3,7 @@ import { HashRouter, Routes, Route } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Crown, PartyPopper, Users } from 'lucide-react';
 import AlbumPage from './components/AlbumPage';
+import PasswordGate from './components/PasswordGate';
 import { ALBUMS } from './constants';
 
 const LandingPage = () => {
@@ -107,11 +108,19 @@ const App = () => {
         <Route path="/" element={<LandingPage />} />
         <Route 
           path="/ragazzi" 
-          element={<AlbumPage config={ALBUMS.ragazzi} />} 
+          element={
+            <PasswordGate config={ALBUMS.ragazzi}>
+              <AlbumPage config={ALBUMS.ragazzi} />
+            </PasswordGate>
+          } 
         />
         <Route 
           path="/genitori" 
-          element={<AlbumPage config={ALBUMS.genitori} />} 
+          element={
+            <PasswordGate config={ALBUMS.genitori}>
+              <AlbumPage config={ALBUMS.genitori} />
+            </PasswordGate>
+          } 
         />
       </Routes>
     </HashRouter>

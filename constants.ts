@@ -214,6 +214,7 @@ export const ALBUMS: Record<string, AlbumConfig> = {
     subtitle: "Party & Vibes",
     description: "Musica alta, risate e momenti indimenticabili. La vera festa è qui!",
     theme: 'dark',
+    password: 'R7X2P', // CODICE CASUALE RAGAZZI
     photos: RAGAZZI_PHOTOS
   },
   genitori: {
@@ -221,6 +222,7 @@ export const ALBUMS: Record<string, AlbumConfig> = {
     subtitle: "Ricordi Preziosi",
     description: "L'eleganza di una serata speciale. I momenti più emozionanti con parenti e amici di famiglia.",
     theme: 'light',
+    password: 'G9L4M', // CODICE CASUALE GENITORI
     photos: GENITORI_PHOTOS
   }
 };

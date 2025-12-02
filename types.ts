@@ -14,5 +14,6 @@ export interface AlbumConfig {
   subtitle: string;
   description: string;
   theme: 'dark' | 'light';
+  password?: string; // Access code for the album
   photos: Photo[];
 }
