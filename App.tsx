@@ -21,17 +21,17 @@ const LandingPage = () => {
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="relative z-10 text-center mb-12 md:mb-20"
+          className="relative z-10 text-center mb-12 md:mb-20 max-w-3xl mx-auto"
         >
           <div className="inline-flex items-center justify-center p-3 mb-6 bg-white rounded-full shadow-sm border border-stone-100">
             <Crown className="w-6 h-6 text-gold-500 mr-2" />
-            <span className="text-sm font-semibold tracking-widest uppercase text-stone-500">18 Maggio 2025</span>
+            <span className="text-sm font-semibold tracking-widest uppercase text-stone-500">29 Novembre</span>
           </div>
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-stone-900 mb-4 tracking-tight">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-stone-900 mb-6 tracking-tight">
             Rucsandra
           </h1>
-          <p className="text-xl md:text-2xl text-stone-500 font-serif italic">
-            Benvenuti al mio diciottesimo
+          <p className="text-lg md:text-xl text-stone-500 font-serif italic leading-relaxed px-4">
+            “La vita si capisce solo guardando indietro, ma si vive guardando avanti.” — Søren Kierkegaard
           </p>
         </motion.div>
 
@@ -82,7 +82,7 @@ const LandingPage = () => {
                 </div>
                 <h2 className="text-3xl font-serif font-bold mb-2">Genitori</h2>
                 <p className="text-stone-600 text-center text-sm md:text-base">
-                  Emozioni, famiglia e ricordi eleganti
+                  Festa, famiglia e ricordi
                 </p>
                 <span className="mt-6 px-6 py-2 border border-stone-300 rounded-full text-sm hover:bg-stone-800 hover:text-white transition-all">
                   Sfoglia l'album
