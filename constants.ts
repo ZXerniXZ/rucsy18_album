@@ -85,7 +85,7 @@ const RAGAZZI_FILE_IDS: string[] = [
   '1yVI4Oj8UcAXc5FTNkTqUqjor2S1vsL0Z', // Ragazzi_062.jpg
   '18gpBg3kM2s0Lr9fiiI1Jppcd6IF9_Mb3', // Ragazzi_063.jpg
   '1uMQyv9A26LeTSIbH7SNQKjuGTaWuALwl', // Ragazzi_064.jpg
-  '1Kt98TPXKfM5BxWtxIXuwbGrz7f7u9PJM', // Ragazzi_065.jpg
+  //'1Kt98TPXKfM5BxWtxIXuwbGrz7f7u9PJM', // Ragazzi_065.jpg
   '1qlCxkaQlqOzb-ieSm9zSaH3gAvG4XugJ', // Ragazzi_066.jpg
   '1JWsFzk9C2YjgP0QeJQ6aIxyAQAKI95l8', // Ragazzi_067.jpg
   '1eMzzAmmSOHll9N3YZOxGMYCoIBY86WDz', // Ragazzi_068.jpg
